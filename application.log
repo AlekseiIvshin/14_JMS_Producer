@@ -1,0 +1,13 @@
+11:18:24.002 [main] DEBUG ru.udm.app.AppProducer - Command:publish
+11:18:24.234 [main] DEBUG ru.udm.jms.publishers.Publisher - publish to topic 'MyTopic' message ''
+11:18:24.244 [main] DEBUG ru.udm.app.AppProducer - Command:HIIIIIASDASKnfgkASNGFKLANGGA
+11:18:58.476 [main] DEBUG ru.udm.app.AppProducer - Command:publish
+11:18:58.687 [main] DEBUG ru.udm.jms.publishers.Publisher - publish to topic 'MyTopic' message ''
+11:18:58.707 [main] DEBUG ru.udm.app.AppProducer - Command:HIIIIIASDASKnfgkASNGFKLANGGA
+11:19:30.832 [main] DEBUG ru.udm.app.AppProducer - Command:publish
+11:19:31.063 [main] DEBUG ru.udm.jms.publishers.Publisher - publish to topic 'MyTopic' message ''
+11:19:31.073 [main] DEBUG ru.udm.app.AppProducer - Command:HIIIIIASDASKnfgkASNGFKLANGGA
+11:19:37.723 [main] DEBUG ru.udm.app.AppProducer - Command:publish
+11:19:37.723 [main] DEBUG ru.udm.jms.publishers.Publisher - publish to topic 'MyTopic' message 'zzz'
+11:20:19.847 [main] DEBUG ru.udm.app.AppProducer - Command:publish
+11:20:20.058 [main] DEBUG ru.udm.jms.publishers.Publisher - publish to topic 'MyTopic' message 'HIIIIIASDASKnfgkASNGFKLANGGA'

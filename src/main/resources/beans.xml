@@ -17,8 +17,17 @@
 		</property>
 	</bean>
 	
+	<bean id="jmsTopicTemplate" class="org.springframework.jms.core.JmsTemplate">
+		<property name="connectionFactory" ref="connectionFactory" />
+		<property name="pubSubDomain" value="true" />
+	</bean>
+	
 	<bean id="defaultDestination" class="org.apache.activemq.command.ActiveMQQueue">
 		<constructor-arg index="0" value="${jms.queue.name}" />
+	</bean>
+	
+	<bean id="topicDestination" class="org.apache.activemq.command.ActiveMQTopic">	
+		<constructor-arg index="0" value="${jms.topic.name}" />
 	</bean>
 
 	<bean id="connectionFactory" class="org.apache.activemq.ActiveMQConnectionFactory">
