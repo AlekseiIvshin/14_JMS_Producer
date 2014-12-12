@@ -1,0 +1,14 @@
+apply plugin: 'java'
+apply plugin: 'eclipse'
+
+repositories {
+	mavenCentral()
+}
+
+dependencies{
+	compile 'ch.qos.logback:logback-classic:1.1.2'
+	compile 'javax:javaee-api:7.0'
+	testCompile 'junit:junit:4.11+'
+	compile 'org.mockito:mockito-all:1.9.5'
+	
+}
