@@ -54,7 +54,7 @@ public class AppProducer {
 					close();
 					System.exit(1);
 				default:
-					break;
+					break; 
 				}
 			}
 		}
