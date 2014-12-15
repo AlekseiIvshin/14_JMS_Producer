@@ -13,11 +13,16 @@ import org.springframework.jms.core.JmsTemplate;
 import org.springframework.jms.core.MessageCreator;
 import org.springframework.stereotype.Component;
 
+import ru.udm.jms.publishers.commandhandler.MessageHandler;
+
 @Component
 public class Publisher {
 	private static Logger LOGGER = LoggerFactory
 			.getLogger(Publisher.class);
 
+	@Autowired
+	MessageHandler messageHandler;
+	
 	@Autowired
 	@Qualifier("jmsTopicTemplate")
 	JmsTemplate jmsTemplate;
@@ -26,14 +31,16 @@ public class Publisher {
 	@Qualifier("topicDestination")
 	Topic destination;
 	
-	public void publish(final String message){
+	public void publish(final String command){
 		this.jmsTemplate.send(destination, new MessageCreator() {
 			
 			@Override
 			public Message createMessage(Session session) throws JMSException {
-				LOGGER.debug("publish to topic '{}' message '{}'",destination.getTopicName(),message);
-				return session.createTextMessage(message);
+				LOGGER.debug("publish to topic '{}' command '{}'",destination.getTopicName(),command);
+				Message message = session.createTextMessage();
+				return messageHandler.handle(message, command);
 			}
 		});
 	}
+
 }

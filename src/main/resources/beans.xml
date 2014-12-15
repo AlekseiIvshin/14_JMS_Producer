@@ -8,7 +8,7 @@
             http://www.springframework.org/schema/jms http://www.springframework.org/schema/jms/spring-jms.xsd">
 
 	<jms:annotation-driven />
-	<context:component-scan base-package="ru.udm.jms,ru.udm.app.helpers"/>
+	<context:component-scan base-package="ru.udm.jms,ru.udm.app.helpers,ru.udm.app"/>
 	<context:property-placeholder location="classpath:config.properties,messages.properties"/>
 
 	<bean id="jmsProducerTemplate" class="org.springframework.jms.core.JmsTemplate">
