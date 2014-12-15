@@ -35,9 +35,8 @@ public class AppProducer {
 
 		try (Scanner sc = new Scanner(System.in)) {
 			String line = "";
-			while ((line = sc.next()) != null && !line.isEmpty()) {
-				String[] command = line.split(":", 2);
-				LOGGER.debug("Command:{}",command);
+			while ((line = sc.nextLine()) != null && !line.isEmpty()) {
+				String[] command = line.split(":{1}\\s?",2);
 				switch (command[0]) {
 				case "publish":
 					publisher.publish(command[1]);
@@ -67,6 +66,7 @@ public class AppProducer {
 	}
 
 	private void close() {
+		LOGGER.debug("Close application");
 		if (context != null) {
 			((AbstractApplicationContext) context).close();
 		}

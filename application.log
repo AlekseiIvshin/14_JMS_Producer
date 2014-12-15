@@ -11,3 +11,76 @@
 11:19:37.723 [main] DEBUG ru.udm.jms.publishers.Publisher - publish to topic 'MyTopic' message 'zzz'
 11:20:19.847 [main] DEBUG ru.udm.app.AppProducer - Command:publish
 11:20:20.058 [main] DEBUG ru.udm.jms.publishers.Publisher - publish to topic 'MyTopic' message 'HIIIIIASDASKnfgkASNGFKLANGGA'
+03:05:17.128 [main] DEBUG ru.udm.app.AppProducer - Command:publish:
+03:05:17.129 [main] DEBUG ru.udm.app.AppProducer - Command:sda
+03:07:22.992 [main] DEBUG ru.udm.app.AppProducer - Command:publish
+03:07:23.303 [main] DEBUG ru.udm.jms.publishers.Publisher - publish to topic 'MyTopic' message ''
+03:07:23.353 [main] DEBUG ru.udm.app.AppProducer - Command:dad
+03:07:23.353 [main] DEBUG ru.udm.app.AppProducer - Command:asda
+03:07:32.540 [main] DEBUG ru.udm.app.AppProducer - Command:publish
+03:07:32.561 [main] DEBUG ru.udm.jms.publishers.Publisher - publish to topic 'MyTopic' message 'asda'
+03:08:36.640 [main] DEBUG ru.udm.app.AppProducer - Command:[Ljava.lang.String;@71f15b67
+03:08:36.861 [main] DEBUG ru.udm.jms.publishers.Publisher - publish to topic 'MyTopic' message ''
+03:08:36.881 [main] DEBUG ru.udm.app.AppProducer - Command:[Ljava.lang.String;@239960e4
+03:08:36.881 [main] DEBUG ru.udm.app.AppProducer - Command:[Ljava.lang.String;@2aa82afe
+03:10:28.941 [main] DEBUG ru.udm.app.AppProducer - Command:publish
+03:10:29.153 [main] DEBUG ru.udm.jms.publishers.Publisher - publish to topic 'MyTopic' message ''
+03:10:29.163 [main] DEBUG ru.udm.app.AppProducer - Command:sd
+03:10:29.163 [main] DEBUG ru.udm.app.AppProducer - Command:a
+03:10:29.163 [main] DEBUG ru.udm.app.AppProducer - Command:ada
+03:12:06.301 [main] DEBUG ru.udm.app.AppProducer - Command:publish
+03:12:06.301 [main] DEBUG ru.udm.app.AppProducer -  m 0 publish
+03:12:06.301 [main] DEBUG ru.udm.app.AppProducer -  m 1 
+03:12:06.542 [main] DEBUG ru.udm.jms.publishers.Publisher - publish to topic 'MyTopic' message ''
+03:12:06.552 [main] DEBUG ru.udm.app.AppProducer - Command:sd
+03:12:06.552 [main] DEBUG ru.udm.app.AppProducer - Command:asd
+03:12:06.552 [main] DEBUG ru.udm.app.AppProducer - Command:a
+03:12:30.154 [main] DEBUG ru.udm.app.AppProducer - Command:publish
+03:12:30.154 [main] DEBUG ru.udm.app.AppProducer -  m 0 publish
+03:12:30.154 [main] DEBUG ru.udm.app.AppProducer -  m 1 
+03:12:30.383 [main] DEBUG ru.udm.jms.publishers.Publisher - publish to topic 'MyTopic' message ''
+03:12:30.393 [main] DEBUG ru.udm.app.AppProducer - Command:d
+03:12:30.393 [main] DEBUG ru.udm.app.AppProducer - Command:a
+03:12:30.393 [main] DEBUG ru.udm.app.AppProducer - Command:sd
+03:12:30.393 [main] DEBUG ru.udm.app.AppProducer - Command:a
+03:12:52.764 [main] DEBUG ru.udm.app.AppProducer - Command:publish
+03:12:52.764 [main] DEBUG ru.udm.app.AppProducer -  m 0 publish
+03:12:52.764 [main] DEBUG ru.udm.app.AppProducer -  m 1 
+03:12:52.995 [main] DEBUG ru.udm.jms.publishers.Publisher - publish to topic 'MyTopic' message ''
+03:12:53.005 [main] DEBUG ru.udm.app.AppProducer - Command:d
+03:12:53.005 [main] DEBUG ru.udm.app.AppProducer - Command:asdo
+03:12:53.005 [main] DEBUG ru.udm.app.AppProducer - Command:a
+03:13:19.380 [main] DEBUG ru.udm.app.AppProducer - Command:publish
+03:13:19.380 [main] DEBUG ru.udm.app.AppProducer -  m 0 publish
+03:13:19.380 [main] DEBUG ru.udm.app.AppProducer -  m 1 sda
+03:13:19.381 [main] DEBUG ru.udm.jms.publishers.Publisher - publish to topic 'MyTopic' message 'sda'
+03:13:19.401 [main] DEBUG ru.udm.app.AppProducer - Command:Ad
+03:13:19.401 [main] DEBUG ru.udm.app.AppProducer - Command:asda
+03:15:09.526 [main] DEBUG ru.udm.app.AppProducer - Command:publish
+03:15:09.536 [main] DEBUG ru.udm.app.AppProducer -  m 0 publish
+03:16:28.555 [main] DEBUG ru.udm.app.AppProducer - Full command line: publish:
+03:16:28.555 [main] DEBUG ru.udm.app.AppProducer - Command:publish
+03:16:28.555 [main] DEBUG ru.udm.app.AppProducer -  m 0 publish
+03:16:45.159 [main] DEBUG ru.udm.app.AppProducer - Full command line: publish:da
+03:16:45.169 [main] DEBUG ru.udm.app.AppProducer - Command:publish
+03:16:45.169 [main] DEBUG ru.udm.app.AppProducer -  m 0 publish
+03:16:45.169 [main] DEBUG ru.udm.app.AppProducer -  m 1 da
+03:16:45.381 [main] DEBUG ru.udm.jms.publishers.Publisher - publish to topic 'MyTopic' message 'da'
+03:16:45.391 [main] DEBUG ru.udm.app.AppProducer - Full command line: asd
+03:16:45.391 [main] DEBUG ru.udm.app.AppProducer - Command:asd
+03:17:20.030 [main] DEBUG ru.udm.jms.publishers.Publisher - publish to topic 'MyTopic' message 'dasd a sda'
+03:18:58.388 [main] DEBUG ru.udm.jms.publishers.Publisher - publish to topic 'MyTopic' message 'sd asd a'
+03:19:09.216 [main] DEBUG ru.udm.jms.queue.Producer - publish to queue 'HelloQueue' message 'Test'
+03:20:30.036 [main] DEBUG ru.udm.jms.publishers.Publisher - publish to topic 'MyTopic' message 'da asd asd a'
+03:37:19.239 [main] DEBUG ru.udm.jms.publishers.Publisher - publish to topic 'MyTopic' message 'das da'
+03:37:54.021 [main] DEBUG ru.udm.jms.publishers.Publisher - publish to topic 'MyTopic' message 'azazaza'
+03:40:18.333 [main] DEBUG ru.udm.jms.publishers.Publisher - publish to topic 'MyTopic' message 'test 0 '
+03:43:53.117 [main] DEBUG ru.udm.jms.publishers.Publisher - publish to topic 'MyTopic' message 'dadada'
+03:44:14.859 [main] DEBUG ru.udm.jms.queue.Producer - publish to queue 'HelloQueue' message 'aaaa'
+03:44:32.534 [main] DEBUG ru.udm.jms.publishers.Publisher - publish to topic 'MyTopic' message 'da ,dlad a'
+03:48:58.396 [main] DEBUG ru.udm.jms.publishers.Publisher - publish to topic 'MyTopic' message 'da asd '
+03:49:53.374 [main] DEBUG ru.udm.jms.publishers.Publisher - publish to topic 'MyTopic' message 'Consumer off test 0'
+03:51:29.826 [main] DEBUG ru.udm.jms.publishers.Publisher - publish to topic 'MyTopic' message 'ololo'
+03:55:42.893 [main] DEBUG ru.udm.jms.publishers.Publisher - publish to topic 'MyTopic' message 'test online'
+03:56:39.758 [main] DEBUG ru.udm.jms.publishers.Publisher - publish to topic 'MyTopic' message 'test offline 1'
+03:57:18.971 [main] DEBUG ru.udm.jms.publishers.Publisher - publish to topic 'MyTopic' message 'test online 2'
