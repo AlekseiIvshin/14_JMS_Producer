@@ -14,7 +14,7 @@
 	<jms:annotation-driven />
 	<context:component-scan base-package="ru.udm.jms,ru.udm.app.helpers,ru.udm.app" />
 	<context:property-placeholder
-		location="classpath:config.properties,messages.properties" />
+		location="classpath:config.properties" />
 
 	<bean id="jmsProducerTemplate" class="org.springframework.jms.core.JmsTemplate">
 		<property name="connectionFactory">

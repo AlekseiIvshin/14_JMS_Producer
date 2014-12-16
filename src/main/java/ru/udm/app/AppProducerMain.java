@@ -12,6 +12,10 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class AppProducerMain {
 
+	private static String AUTO_COMMAND = "text:Some text";
+	private static long AUTO_TIME_WORK = 1000 * 60 * 60; // 1 hour
+	private static long AUTO_STEP = 1000;
+
 	private static Logger LOGGER = LoggerFactory
 			.getLogger(AppProducerMain.class);
 
@@ -26,7 +30,7 @@ public class AppProducerMain {
 	public static void direct(AppProducer app) {
 		try (Scanner sc = new Scanner(System.in)) {
 			String line = "";
-			boolean exit = true;
+			boolean exit = false;
 			while (!exit && (line = sc.nextLine()) != null) {
 				String[] command = line.split(":{1}\\s?", 2);
 				switch (command[0]) {
@@ -49,11 +53,24 @@ public class AppProducerMain {
 				case "exit":
 					exit = true;
 					break;
+				case "auto":
+					long startWork = System.currentTimeMillis();
+					long endWork = startWork + AUTO_TIME_WORK;
+					long current;
+					while ((current = System.currentTimeMillis()) < endWork) {
+						String cmd = AUTO_COMMAND + current + ";";
+						app.publish(cmd);
+						try {
+							Thread.sleep(AUTO_STEP);
+						} catch (InterruptedException e) {}
+
+					}
+
+					break;
 				default:
 					break;
 				}
 			}
 		}
 	}
-
 }
