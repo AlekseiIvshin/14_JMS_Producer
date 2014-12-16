@@ -3,7 +3,6 @@ package ru.udm.jms.publishers.commandhandler;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
-import javax.jms.JMSException;
 import javax.jms.Message;
 
 import org.slf4j.Logger;
@@ -23,15 +22,13 @@ public class MessageHandler {
 	}
 
 	@Autowired
-	List<CommandHandler> handlers;
+	List<GenericHandler<?>> handlers;
 	
-	public Message handle(Message message,String command){
-		for(CommandHandler h: handlers){
+	public Message handle(Message message,String command) throws HandlerException{
+		for(GenericHandler<?> h: handlers){
 			try {
 				message = h.handle(message, command);
-			} catch (JMSException e) {
-				LOGGER.error("Handle error",e);
-			} catch (RuntimeException e) {}
+			}  catch (RuntimeException e) {}
 		}
 		return message;
 	}

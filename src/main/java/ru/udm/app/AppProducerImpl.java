@@ -1,17 +1,15 @@
 package ru.udm.app;
 
-import javax.annotation.PostConstruct;
+import java.util.List;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
-import org.springframework.context.support.AbstractApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.stereotype.Component;
 
-import ru.udm.jms.publishers.Publisher;
 import ru.udm.jms.queue.Producer;
+import ru.udm.jms.topic.Publisher;
 
 @Component
 public class AppProducerImpl implements AppProducer {
@@ -21,38 +19,29 @@ public class AppProducerImpl implements AppProducer {
 
 	@Autowired
 	private ApplicationContext context;
+	@Autowired
 	private Publisher publisher;
+	@Autowired
 	private Producer producer;
-	
-	@PostConstruct
-	private void init() {
-		LOGGER.debug("AppProducer start working!");
-		producer = context.getBean(Producer.class);
-		publisher =context.getBean(Publisher.class);
-	}
-	
-
-	@Override
-	public void close() {
-		LOGGER.debug("Close application");
-		if (context != null) {
-			((AbstractApplicationContext) context).close();
-		}
-	}
-
 
 	@Override
 	public void publish(String command) {
+		LOGGER.debug("Publish in topic. Command = '{}'", command);
 		publisher.publish(command);
 	}
 
-
 	@Override
 	public void sendToQueue(String command) {
-		LOGGER.debug("Send to queue. Command = '{}'",command);
+		LOGGER.debug("Send to queue. Command = '{}'", command);
 		producer.send(command);
 	}
-	
-	
+
+	@Override
+	public void sendBatchToQueue(List<String> commands) {
+		LOGGER.debug("Send batch to queue. Command count = '{}'",
+				commands.size());
+		producer.sendBatch(commands);
+
+	}
 
 }

@@ -8,17 +8,21 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
 @Component
-public class SetPriority extends CommandHandler {
+public class SetPriority extends GenericHandler<Integer> {
 
 	private static Logger LOGGER = LoggerFactory.getLogger(SetPriority.class);
 
 	private String COMMAND_NAME = "pr:";
 
 	@Override
-	public Message handle(Message message, String command) throws JMSException {
+	public Message handle(Message message, String command) throws HandlerException {
 		int priority = getValue(message, command, COMMAND_NAME);
 		LOGGER.debug("Handle message: priority = {}", priority);
-		message.setJMSPriority(priority);
+		try {
+			message.setJMSPriority(priority);
+		} catch (JMSException e) {
+			throw new HandlerException(e.getMessage());
+		}
 		return message;
 	}
 

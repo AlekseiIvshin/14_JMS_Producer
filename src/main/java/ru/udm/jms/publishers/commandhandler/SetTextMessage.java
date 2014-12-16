@@ -9,7 +9,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
 @Component
-public class SetTextMessage extends CommandHandler {
+public class SetTextMessage extends GenericHandler<String> {
 
 	private static Logger LOGGER = LoggerFactory
 			.getLogger(SetTextMessage.class);
@@ -17,11 +17,15 @@ public class SetTextMessage extends CommandHandler {
 	private final static String COMMAND_NAME = "text:";
 
 	@Override
-	public Message handle(Message message, String command) throws JMSException {
+	public Message handle(Message message, String command) throws HandlerException {
 		if (message instanceof TextMessage) {
 			String value = getValue(message, command, COMMAND_NAME);
 			LOGGER.debug("Handle message: message text = '{}'", value);
-			((TextMessage) message).setText(value);
+			try {
+				((TextMessage) message).setText(value);
+			} catch (JMSException e) {
+				throw new HandlerException(e.getMessage());
+			}
 		}
 		return message;
 	}

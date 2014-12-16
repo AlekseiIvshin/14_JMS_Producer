@@ -1,38 +1,52 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:jms="http://www.springframework.org/schema/jms"
-	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:context="http://www.springframework.org/schema/context" xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:aop="http://www.springframework.org/schema/aop"
 	xsi:schemaLocation="http://www.springframework.org/schema/context 
-                           http://www.springframework.org/schema/context/spring-context.xsd
+            http://www.springframework.org/schema/context/spring-context.xsd
             http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
-            http://www.springframework.org/schema/jms http://www.springframework.org/schema/jms/spring-jms.xsd">
+            http://www.springframework.org/schema/jms http://www.springframework.org/schema/jms/spring-jms.xsd
+            http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd
+        	http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
 
+	<tx:annotation-driven transaction-manager="txManager" />
 	<jms:annotation-driven />
-	<context:component-scan base-package="ru.udm.jms,ru.udm.app.helpers,ru.udm.app"/>
-	<context:property-placeholder location="classpath:config.properties,messages.properties"/>
+	<context:component-scan base-package="ru.udm.jms,ru.udm.app.helpers,ru.udm.app" />
+	<context:property-placeholder
+		location="classpath:config.properties,messages.properties" />
 
 	<bean id="jmsProducerTemplate" class="org.springframework.jms.core.JmsTemplate">
 		<property name="connectionFactory">
 			<ref bean="connectionFactory" />
 		</property>
+		<property name="sessionTransacted" value="true" />
+		<property name="receiveTimeout" value="1000" />
+		<property name="deliveryPersistent" value="false" />
 	</bean>
-	
+
 	<bean id="jmsTopicTemplate" class="org.springframework.jms.core.JmsTemplate">
 		<property name="connectionFactory" ref="connectionFactory" />
 		<property name="pubSubDomain" value="true" />
 	</bean>
-	
+
 	<bean id="defaultDestination" class="org.apache.activemq.command.ActiveMQQueue">
 		<constructor-arg index="0" value="${jms.queue.name}" />
 	</bean>
-	
-	<bean id="topicDestination" class="org.apache.activemq.command.ActiveMQTopic">	
+
+	<bean id="topicDestination" class="org.apache.activemq.command.ActiveMQTopic">
 		<constructor-arg index="0" value="${jms.topic.name}" />
 	</bean>
 
 	<bean id="connectionFactory" class="org.apache.activemq.ActiveMQConnectionFactory">
-		<property name="brokerURL">
-			<value>tcp://localhost:61616</value>
-		</property>
+		<property name="brokerURL" value="tcp://localhost:61616" />
 	</bean>
+
+
+	<bean id="txManager"
+		class="org.springframework.jms.connection.JmsTransactionManager">
+		<constructor-arg index="0" ref="connectionFactory" />
+		<property name="defaultTimeout" value="1000" />
+	</bean>
+
 </beans>
